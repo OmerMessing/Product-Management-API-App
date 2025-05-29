@@ -47,7 +47,7 @@ PUT /products/:id - Update an existing product
 
 DELETE /products/:id - Delete a product
 
-Each product is linked to a category using a Sequelize association (Product.belongsTo(Category)).
+Each product is linked to a category using a Sequelize association.
 
 ## Project Structure
 
@@ -73,16 +73,26 @@ MySQL (running locally)
 
 # Front-end
 
+This is the React frontend for the Product Management app, using vite. It interacts with the Express API and allows users to manage products through a table UI (with Ant Design).
+
 ## Developement
 
-Please install the necessary node modules:
+To get started, install the required dependencies:
 
 `npm i`
 
-## Running
+Then, to start the development server with hot-reloading:
 
 `npm run dev`
 
-## Building
+The app will be available at http://localhost:5173
+
+Make sure you run the server as well.
+
+## Building for Production
+
+To generate a production build of the frontend:
 
 `npm run build`
+
+This will create the compiled output in the dist/ folder. You can then copy this folder into the Express public/ directory to serve it statically.
