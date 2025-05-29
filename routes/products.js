@@ -55,7 +55,14 @@ router.put("/:id", async (req, res) => {
     if (!product) return res.status(404).json({ message: "Product not found" });
 
     await product.update({ name, price, categoryId });
-    res.json(product);
+    const updatedProduct = await Product.findByPk(product.id, {
+      include: {
+        model: Category,
+        as: "category",
+        attributes: ["id", "name"],
+      },
+    });
+    res.json(updatedProduct);
   } catch (err) {
     console.error("error:", err);
     res.status(500).json({ error: "Failed to update product" });
