@@ -1,5 +1,5 @@
 # Node modules
 node_modules/
-
+react-app/node_modules/
 
 models/db.js
