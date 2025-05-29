@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Toaster position="top-center" />
+    <Toaster position="top-left" />
     <App />
   </StrictMode>
 );

@@ -72,22 +72,20 @@ const EditableCell = ({
       if (dataIndex === "categoryId") {
         // Special case: use Select for category
         inputNode = (
-          <Form.Item name={dataIndex} style={{ margin: 0 }}>
-            <Select
-              onChange={(value) => {
-                form.setFieldValue(dataIndex, value);
-                save();
-              }}
-              value={form.getFieldValue(dataIndex)}
-              onBlur={save}
-            >
-              {categories.map((cat) => (
-                <Select.Option key={cat.value} value={cat.value}>
-                  {cat.label}
-                </Select.Option>
-              ))}
-            </Select>
-          </Form.Item>
+          <Select
+            onChange={(value) => {
+              form.setFieldValue(dataIndex, value);
+              save();
+            }}
+            value={form.getFieldValue(dataIndex)}
+            onBlur={save}
+          >
+            {categories.map((cat) => (
+              <Select.Option key={cat.value} value={cat.value}>
+                {cat.label}
+              </Select.Option>
+            ))}
+          </Select>
         );
       } else if (inputType === "number") {
         inputNode = <InputNumber onPressEnter={save} onBlur={save} />;
