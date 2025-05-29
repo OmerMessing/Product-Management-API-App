@@ -6,11 +6,9 @@ const logger = require("morgan");
 const sequelize = require("./models/db");
 const { Product, Category } = require("./models");
 
-// const Product = require("./models/category");
-// const Category = require("./models/product");
-
+// requiring routes
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const productsRouter = require("./routes/products");
 
 const app = express();
 
@@ -20,11 +18,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-sequelize.sync().then(() => {
-  console.log("DB connected & tables created");
-});
-
+// routes
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/products", productsRouter);
+
+sequelize.sync().then(() => {
+  console.log("DB connected & synced");
+});
 
 module.exports = app;
