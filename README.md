@@ -27,7 +27,7 @@ Make sure you have a MySQL server running locally, and create the database manua
 CREATE DATABASE product_management;
 ```
 
-## Running the project
+## Developement
 
 The frontend is already built into the public/ folder, so you don't need to build anything.
 
